@@ -9,9 +9,6 @@ Original file is located at
 
 import json
 import os
-# Provide the file for download
-from IPython.display import FileLink
-FileLink('/mnt/data/modelo_clean.py')
 import google.generativeai as genai # Corrected import
 from google.genai.types import GenerationConfig  # Ajuste
 
@@ -22,7 +19,7 @@ GOOGLE_API_KEY = os.getenv("GEMINI_API_KEY")
 if not GOOGLE_API_KEY:
     raise ValueError("Configura GEMINI_API_KEY en tus variables de entorno.")
 
-genai.configure(api_key=GOOGLE_API_KEY)
+genai.configure(api_key=GOOGLE_API_KEY);
 gemini_model = genai.GenerativeModel('gemini-2.5-pro')
 
 RESPONSE_SCHEMA = {
