@@ -10,7 +10,15 @@ Original file is located at
 import json
 import os
 import google.generativeai as genai # Corrected import
-from google.genai.types import GenerationConfig  # Ajuste
+
+try:
+    from google.genai.types import GenerationConfig
+except Exception:
+    try:
+        from google.genai import types as genai_types
+        GenerationConfig = genai_types.GenerationConfig
+    except Exception:
+        GenerationConfig = None
 
 # Set your GEMINI_API_KEY here
 os.environ["GEMINI_API_KEY"] = "YOUR_API_KEY" # REPLACE WITH YOUR ACTUAL API KEY
